@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lCE-GY-xwp">
-                                <rect key="frame" x="20" y="72" width="320" height="276"/>
+                                <rect key="frame" x="20" y="72" width="320" height="399"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-zQ-gN3">
                                         <rect key="frame" x="131" y="0.0" width="59" height="30"/>
@@ -85,15 +85,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agM-X0-TJc">
+                                        <rect key="frame" x="105" y="123" width="110" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Text-To-Speech"/>
+                                        <connections>
+                                            <action selector="textToSpeech:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gg9-aW-2hz"/>
+                                        </connections>
+                                    </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-A0-AV4">
-                                        <rect key="frame" x="0.0" y="30" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="153" width="320" height="216"/>
                                         <animations/>
                                         <date key="date" timeIntervalSinceReferenceDate="467140451.49541801">
                                             <!--2015-10-21 17:14:11 +0000-->
                                         </date>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
-                                        <rect key="frame" x="104" y="246" width="113" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
+                                        <rect key="frame" x="104" y="369" width="113" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Set as Complete"/>
                                         <connections>

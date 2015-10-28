@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
@@ -15,6 +16,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateField: UIDatePicker!
     @IBOutlet weak var setCompButton: UIButton!
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+    
+    @IBAction func textToSpeech(sender: UIButton) {
+        myUtterance = AVSpeechUtterance(string: nameField.text!)
+        myUtterance.rate = 0.3
+        synth.speakUtterance(myUtterance)
+    }
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     

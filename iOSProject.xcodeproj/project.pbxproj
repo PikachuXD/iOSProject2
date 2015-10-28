@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		191A9B201BE07BAA0082E363 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A9B1F1BE07BAA0082E363 /* TaskList.swift */; };
+		191A9B221BE091F00082E363 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191A9B211BE091F00082E363 /* AVFoundation.framework */; };
 		1920D0681BD75D910038BE08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920D0671BD75D910038BE08 /* AppDelegate.swift */; };
 		1920D06A1BD75D910038BE08 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920D0691BD75D910038BE08 /* TaskViewController.swift */; };
 		1920D06D1BD75D910038BE08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1920D06B1BD75D910038BE08 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		191A9B1F1BE07BAA0082E363 /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		191A9B211BE091F00082E363 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1920D0641BD75D910038BE08 /* iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1920D0671BD75D910038BE08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1920D0691BD75D910038BE08 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191A9B221BE091F00082E363 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +88,7 @@
 		1920D05B1BD75D910038BE08 = {
 			isa = PBXGroup;
 			children = (
+				191A9B211BE091F00082E363 /* AVFoundation.framework */,
 				1920D0661BD75D910038BE08 /* iOSProject */,
 				1920D07B1BD75D910038BE08 /* iOSProjectTests */,
 				1920D0861BD75D910038BE08 /* iOSProjectUITests */,
