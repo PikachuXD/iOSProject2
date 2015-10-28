@@ -10,9 +10,11 @@ import Foundation
 class Task {
     var Name : String?
     var DueDate : String?
+    var isComplete : Bool?
     
     init(name : String, duedate : String) {
         self.Name = name
         self.DueDate = duedate
+        self.isComplete = false
     }
 }

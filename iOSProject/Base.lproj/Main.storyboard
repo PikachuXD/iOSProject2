@@ -77,27 +77,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lCE-GY-xwp">
-                                <rect key="frame" x="20" y="72" width="320" height="297"/>
+                                <rect key="frame" x="20" y="72" width="320" height="276"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-zQ-gN3">
-                                        <rect key="frame" x="131" y="0.0" width="59" height="31"/>
+                                        <rect key="frame" x="131" y="0.0" width="59" height="30"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="qxO-gy-wwK"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-A0-AV4">
-                                        <rect key="frame" x="0.0" y="31" width="320" height="266"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="216"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="266" id="llk-Vq-y2S"/>
-                                        </constraints>
                                         <date key="date" timeIntervalSinceReferenceDate="467140451.49541801">
                                             <!--2015-10-21 17:14:11 +0000-->
                                         </date>
                                     </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
+                                        <rect key="frame" x="104" y="246" width="113" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Set as Complete"/>
+                                        <connections>
+                                            <action selector="setAsComplete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXH-tz-qqD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                             </stackView>
@@ -105,9 +107,8 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lCE-GY-xwp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="DOr-yg-1IC"/>
-                            <constraint firstItem="lCE-GY-xwp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IQ4-jV-hMZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lCE-GY-xwp" secondAttribute="bottom" constant="231" id="q49-Sr-oXu"/>
+                            <constraint firstItem="lCE-GY-xwp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="HLx-F2-NDy"/>
+                            <constraint firstItem="lCE-GY-xwp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d60-sP-k13"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="lzI-Hy-W93">
@@ -126,6 +127,7 @@
                         <outlet property="dateField" destination="bxo-A0-AV4" id="xPZ-Uw-UtP"/>
                         <outlet property="nameField" destination="g6d-zQ-gN3" id="Ke1-2e-i4F"/>
                         <outlet property="saveButton" destination="A5I-5X-aLJ" id="1GK-Ex-fBG"/>
+                        <outlet property="setCompButton" destination="e9a-ox-rVa" id="3vZ-HG-tr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

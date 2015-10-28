@@ -72,8 +72,33 @@ class TaskTableViewController: UITableViewController {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 let taskList = taskLists[selectedIndexPath.section]
                 //load the task info into that row
-                taskList.tasks[selectedIndexPath.row] = task
-                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                let thistask = taskList.tasks[selectedIndexPath.row]
+                if thistask.isComplete == true && selectedIndexPath.section == 0 {
+                    //add task to completed list
+                    let newIndexPath = NSIndexPath(forRow: taskLists[1].tasks.count, inSection: 1)
+                    taskLists[1].tasks.append(thistask)
+                    tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                    
+                    //remove task at incomplete list
+                    let selectedList = taskLists[selectedIndexPath.section]
+                    selectedList.tasks.removeAtIndex(selectedIndexPath.row)
+                    tableView.deleteRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Fade)
+                    
+                } else if thistask.isComplete == false && selectedIndexPath.section == 1{
+                    //add task to completed list
+                    let newIndexPath = NSIndexPath(forRow: taskLists[0].tasks.count, inSection: 0)
+                    taskLists[0].tasks.append(thistask)
+                    tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                    
+                    //remove task at incomplete list
+                    let selectedList = taskLists[selectedIndexPath.section]
+                    selectedList.tasks.removeAtIndex(selectedIndexPath.row)
+                    tableView.deleteRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Fade)
+                } else {
+                    
+                    taskList.tasks[selectedIndexPath.row] = task
+                    tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                }
             }
             else {
                 

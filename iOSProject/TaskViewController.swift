@@ -14,6 +14,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateField: UIDatePicker!
+    @IBOutlet weak var setCompButton: UIButton!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -22,6 +23,16 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     //MARK: Navigation
     
+    @IBAction func setAsComplete(sender: AnyObject) {
+        if task?.isComplete == true {
+            setCompButton.setTitle("Set as Complete", forState: .Normal)
+            task?.isComplete = false
+        } else {
+            setCompButton.setTitle("Set as Incomplete", forState: .Normal)
+            task?.isComplete = true
+
+        }
+    }
     @IBAction func cancel(sender: AnyObject) {
         //check if the thing is editing or adding
         let isInAddMode = presentingViewController is UINavigationController
@@ -59,6 +70,11 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             dateFormatter.dateFormat = "MM/dd @ hh:mm"
             let currdate = dateFormatter.dateFromString(task.DueDate!)
             dateField.setDate(currdate!, animated: true)
+            if task.isComplete == true {
+                setCompButton.setTitle("Set as Incomplete", forState: .Normal)
+            } else {
+                setCompButton.setTitle("Set as Complete", forState: .Normal)
+            }
         }
         
         checkValidName()
