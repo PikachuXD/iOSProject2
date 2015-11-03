@@ -9,26 +9,59 @@
 import UIKit
 import AVFoundation
 
-class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
+class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     //MARK: Properties
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateField: UIDatePicker!
     @IBOutlet weak var setCompButton: UIButton!
-    let synth = AVSpeechSynthesizer()
-    var myUtterance = AVSpeechUtterance(string: "")
     
-    @IBAction func textToSpeech(sender: UIButton) {
-        myUtterance = AVSpeechUtterance(string: nameField.text!)
-        myUtterance.rate = 0.3
-        synth.speakUtterance(myUtterance)
-    }
+    @IBOutlet weak var taskPhoto: UIImageView!
+    
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var task : Task?
     var dateFormatter = NSDateFormatter()
+    
+    //MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // The info dictionary contains multiple representations of the image, and this uses the original.
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Set photoImageView to display the selected image.
+        taskPhoto.image = selectedImage
+        task?.photo = selectedImage
+        // Dismiss the picker.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: Actions
+    
+    @IBAction func selectFromPhotoLibrary(sender: UITapGestureRecognizer) {
+        // Hide the keyboard.
+            nameField.resignFirstResponder()
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .PhotoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    
     
     //MARK: Navigation
     
@@ -59,7 +92,8 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             let name = nameField.text ?? ""
             dateFormatter.dateFormat = "MM/dd @ hh:mm"
             let thedate = dateFormatter.stringFromDate(dateField.date)
-            task = Task(name: name, duedate: thedate)
+            let photo = taskPhoto.image
+            task = Task(name: name, photo: photo, duedate: thedate)
             
             
         }
@@ -84,6 +118,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             } else {
                 setCompButton.setTitle("Set as Complete", forState: .Normal)
             }
+            taskPhoto.image = task.photo
         }
         
         checkValidName()

@@ -54,6 +54,7 @@ class TaskTableViewController: UITableViewController {
         let task = taskList.tasks[indexPath.row]
         cell.nameLabel.text = task.Name
         cell.dateLabel.text = task.DueDate
+        cell.photoImageView.image = task.photo
         return cell
     }
     
