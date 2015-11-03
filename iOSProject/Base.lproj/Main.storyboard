@@ -76,48 +76,93 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="center" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVr-a4-SRx">
-                                <rect key="frame" x="20" y="72" width="240" height="596"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="0VG-cM-Mhg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="543"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-zQ-gN3">
-                                        <rect key="frame" x="90" y="8" width="59" height="30"/>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-e7-Pme" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-zQ-gN3">
+                                                <rect key="frame" x="271" y="0.0" width="59" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vHd-mG-kuV"/>
+                                                </connections>
+                                            </textField>
+                                            <datePicker contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="136" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-A0-AV4">
+                                                <rect key="frame" x="170" y="38" width="260" height="100"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="260" id="Eyr-N3-a9O"/>
+                                                    <constraint firstAttribute="height" constant="100" id="fZw-PI-faO"/>
+                                                    <constraint firstAttribute="width" constant="260" id="tgZ-Y6-eQU"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="467140451.49541801">
+                                                    <!--2015-10-21 17:14:11 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
+                                                <rect key="frame" x="244" y="146" width="113" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Set as Complete"/>
+                                                <connections>
+                                                    <action selector="setAsComplete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXH-tz-qqD"/>
+                                                </connections>
+                                            </button>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="160" placeholderIntrinsicHeight="160" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="HHd-gW-9dP">
+                                                <rect key="frame" x="220" y="184" width="160" height="160"/>
+                                                <animations/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="160" id="BhJ-QW-434"/>
+                                                    <constraint firstAttribute="width" constant="160" id="uo6-zW-My9"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="F92-OK-LQE" appends="YES" id="htb-ct-qqg"/>
+                                                </connections>
+                                            </imageView>
+                                        </subviews>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxo-A0-AV4">
-                                        <rect key="frame" x="5" y="84" width="261" height="113"/>
-                                        <animations/>
-                                        <date key="date" timeIntervalSinceReferenceDate="467140451.49541801">
-                                            <!--2015-10-21 17:14:11 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
-                                        <rect key="frame" x="64" y="46" width="113" height="30"/>
-                                        <animations/>
-                                        <state key="normal" title="Set as Complete"/>
-                                        <connections>
-                                            <action selector="setAsComplete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXH-tz-qqD"/>
-                                        </connections>
-                                    </button>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="HHd-gW-9dP">
-                                        <rect key="frame" x="72" y="205" width="97" height="92"/>
-                                        <animations/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="F92-OK-LQE" appends="YES" id="htb-ct-qqg"/>
-                                        </connections>
-                                    </imageView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="HHd-gW-9dP" firstAttribute="top" secondItem="e9a-ox-rVa" secondAttribute="bottom" constant="8" id="8X9-dm-xQa"/>
+                                            <constraint firstItem="g6d-zQ-gN3" firstAttribute="top" secondItem="YTB-e7-Pme" secondAttribute="top" id="IF6-HU-3gr"/>
+                                            <constraint firstItem="e9a-ox-rVa" firstAttribute="top" secondItem="bxo-A0-AV4" secondAttribute="bottom" constant="8" id="OCg-sr-wv7"/>
+                                            <constraint firstItem="bxo-A0-AV4" firstAttribute="top" secondItem="g6d-zQ-gN3" secondAttribute="bottom" constant="8" id="Vr3-xM-Rmi"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YTB-e7-Pme" secondAttribute="bottom" constant="8" id="5aj-Me-suf"/>
+                                    <constraint firstItem="YTB-e7-Pme" firstAttribute="leading" secondItem="0VG-cM-Mhg" secondAttribute="leading" id="aYm-rW-LEF"/>
+                                    <constraint firstAttribute="trailing" secondItem="YTB-e7-Pme" secondAttribute="trailing" id="cvv-Fg-lYG"/>
+                                    <constraint firstItem="YTB-e7-Pme" firstAttribute="top" secondItem="0VG-cM-Mhg" secondAttribute="top" id="dKY-Bp-DXe"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g6d-zQ-gN3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2w5-K5-Zyf"/>
+                            <constraint firstItem="HHd-gW-9dP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Gh-eW-6yP"/>
+                            <constraint firstItem="bxo-A0-AV4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aep-cr-Ymg"/>
+                            <constraint firstAttribute="trailing" secondItem="0VG-cM-Mhg" secondAttribute="trailing" id="Er0-0X-i66"/>
+                            <constraint firstAttribute="bottom" secondItem="0VG-cM-Mhg" secondAttribute="bottom" constant="-7" id="Hxg-8d-Y8D"/>
+                            <constraint firstItem="0VG-cM-Mhg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-57" id="RGM-bS-Dp7"/>
+                            <constraint firstItem="YTB-e7-Pme" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="SMo-I0-kq1"/>
+                            <constraint firstItem="0VG-cM-Mhg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VIL-Uz-q5D"/>
+                            <constraint firstItem="e9a-ox-rVa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fEd-1t-tWX"/>
+                            <constraint firstItem="0VG-cM-Mhg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i7x-rZ-NLJ"/>
+                            <constraint firstItem="0VG-cM-Mhg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iUm-kT-cm7"/>
+                            <constraint firstItem="YTB-e7-Pme" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="x4f-w5-hMb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="lzI-Hy-W93">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="O2v-6K-mI7">
@@ -192,6 +237,6 @@
         <image name="defaultPhoto" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f3Z-Xw-oqT"/>
+        <segue reference="N8U-Gw-RUm"/>
     </inferredMetricsTieBreakers>
 </document>
