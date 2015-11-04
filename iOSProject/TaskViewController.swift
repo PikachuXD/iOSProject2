@@ -24,6 +24,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     var task : Task?
     var dateFormatter = NSDateFormatter()
+    var isComplete : Bool?
     
     //MARK: UIImagePickerControllerDelegate
     
@@ -69,12 +70,14 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         if task?.isComplete == true {
             setCompButton.setTitle("Set as Complete", forState: .Normal)
             task?.isComplete = false
-        } else {
+            isComplete = false
+        } else if task?.isComplete == false {
             setCompButton.setTitle("Set as Incomplete", forState: .Normal)
             task?.isComplete = true
-
+            isComplete = true
         }
     }
+    
     @IBAction func cancel(sender: AnyObject) {
         //check if the thing is editing or adding
         let isInAddMode = presentingViewController is UINavigationController
@@ -93,7 +96,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             dateFormatter.dateFormat = "MM/dd @ hh:mm"
             let thedate = dateFormatter.stringFromDate(dateField.date)
             let photo = taskPhoto.image
-            task = Task(name: name, photo: photo, duedate: thedate)
+            task = Task(name: name, photo: photo, duedate: thedate, isComplete: isComplete!)
             
             
         }
@@ -120,7 +123,7 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             }
             taskPhoto.image = task.photo
         }
-        
+        isComplete = false
         checkValidName()
         self.nameField.delegate = self
     }
