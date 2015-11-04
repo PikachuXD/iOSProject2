@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		191A9B201BE07BAA0082E363 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A9B1F1BE07BAA0082E363 /* TaskList.swift */; };
-		191A9B221BE091F00082E363 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191A9B211BE091F00082E363 /* AVFoundation.framework */; };
 		1920D0681BD75D910038BE08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920D0671BD75D910038BE08 /* AppDelegate.swift */; };
 		1920D06A1BD75D910038BE08 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920D0691BD75D910038BE08 /* TaskViewController.swift */; };
 		1920D06D1BD75D910038BE08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1920D06B1BD75D910038BE08 /* Main.storyboard */; };
@@ -19,6 +18,9 @@
 		192A8D011BDC597D003CE631 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192A8D001BDC597D003CE631 /* Task.swift */; };
 		192A8D031BDC5A00003CE631 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192A8D021BDC5A00003CE631 /* TaskTableViewCell.swift */; };
 		192A8D051BDC78B7003CE631 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192A8D041BDC78B7003CE631 /* TaskTableViewController.swift */; };
+		19FF6C621BE9B7C600B1C2DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FF6C611BE9B7C600B1C2DC /* MapKit.framework */; };
+		19FF6C641BE9B81000B1C2DC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF6C631BE9B81000B1C2DC /* MapViewController.swift */; };
+		19FF6C6C1BE9C4AB00B1C2DC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FF6C6B1BE9C4AB00B1C2DC /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		191A9B1F1BE07BAA0082E363 /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
-		191A9B211BE091F00082E363 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1920D0641BD75D910038BE08 /* iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1920D0671BD75D910038BE08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1920D0691BD75D910038BE08 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +58,9 @@
 		192A8D001BDC597D003CE631 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		192A8D021BDC5A00003CE631 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		192A8D041BDC78B7003CE631 /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		19FF6C611BE9B7C600B1C2DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		19FF6C631BE9B81000B1C2DC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		19FF6C6B1BE9C4AB00B1C2DC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191A9B221BE091F00082E363 /* AVFoundation.framework in Frameworks */,
+				19FF6C6C1BE9C4AB00B1C2DC /* CoreLocation.framework in Frameworks */,
+				19FF6C621BE9B7C600B1C2DC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +93,8 @@
 		1920D05B1BD75D910038BE08 = {
 			isa = PBXGroup;
 			children = (
-				191A9B211BE091F00082E363 /* AVFoundation.framework */,
+				19FF6C6B1BE9C4AB00B1C2DC /* CoreLocation.framework */,
+				19FF6C611BE9B7C600B1C2DC /* MapKit.framework */,
 				1920D0661BD75D910038BE08 /* iOSProject */,
 				1920D07B1BD75D910038BE08 /* iOSProjectTests */,
 				1920D0861BD75D910038BE08 /* iOSProjectUITests */,
@@ -119,6 +125,7 @@
 				1920D0701BD75D910038BE08 /* LaunchScreen.storyboard */,
 				1920D0731BD75D910038BE08 /* Info.plist */,
 				191A9B1F1BE07BAA0082E363 /* TaskList.swift */,
+				19FF6C631BE9B81000B1C2DC /* MapViewController.swift */,
 			);
 			path = iOSProject;
 			sourceTree = "<group>";
@@ -278,6 +285,7 @@
 				1920D06A1BD75D910038BE08 /* TaskViewController.swift in Sources */,
 				192A8D011BDC597D003CE631 /* Task.swift in Sources */,
 				1920D0681BD75D910038BE08 /* AppDelegate.swift in Sources */,
+				19FF6C641BE9B81000B1C2DC /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

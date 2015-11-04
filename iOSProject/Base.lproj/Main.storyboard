@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o2o-eI-Ctr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Task List-->
@@ -170,11 +171,18 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="aq3-29-87o"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="A5I-5X-aLJ">
-                            <connections>
-                                <segue destination="d6W-yP-D8g" kind="unwind" unwindAction="unwindToTaskList:" id="9xg-8n-Vlx"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="A5I-5X-aLJ">
+                                <connections>
+                                    <segue destination="d6W-yP-D8g" kind="unwind" unwindAction="unwindToTaskList:" id="9xg-8n-Vlx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="View Map" id="9Ab-my-TI6">
+                                <connections>
+                                    <segue destination="No2-H1-Gp9" kind="presentation" id="2dZ-hu-xgh"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="dateField" destination="bxo-A0-AV4" id="xPZ-Uw-UtP"/>
@@ -193,6 +201,47 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2231" y="341"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="9z9-lF-EM1">
+            <objects>
+                <viewController id="afG-J7-QWN" customClass="MapViewController" customModule="iOSProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pal-jM-Vz3"/>
+                        <viewControllerLayoutGuide type="bottom" id="QMp-KZ-yv1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qno-yv-9aE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-Ef-xHF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QMp-KZ-yv1" firstAttribute="top" secondItem="s0s-Ef-xHF" secondAttribute="bottom" id="0th-tm-f2I"/>
+                            <constraint firstItem="s0s-Ef-xHF" firstAttribute="top" secondItem="Pal-jM-Vz3" secondAttribute="bottom" id="O0l-Ra-EZM"/>
+                            <constraint firstAttribute="trailing" secondItem="s0s-Ef-xHF" secondAttribute="trailing" id="ai1-I4-gAe"/>
+                            <constraint firstItem="s0s-Ef-xHF" firstAttribute="leading" secondItem="qno-yv-9aE" secondAttribute="leading" id="gYJ-fS-BQV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="hC2-Md-hZ8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gc8-Df-NQ4">
+                            <connections>
+                                <action selector="cancel:" destination="afG-J7-QWN" id="JTQ-2A-0ub"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="s0s-Ef-xHF" id="e9T-fa-SYt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXn-QO-Fu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4599" y="342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fmN-QZ-f6V">
@@ -231,6 +280,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mot-sd-ENw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1405" y="825"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iuc-uS-UDX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="No2-H1-Gp9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uda-if-IRt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="afG-J7-QWN" kind="relationship" relationship="rootViewController" id="9tf-Jl-v9s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xRn-8p-jGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3746" y="881"/>
         </scene>
     </scenes>
     <resources>
