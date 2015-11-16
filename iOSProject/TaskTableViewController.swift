@@ -142,7 +142,7 @@ class TaskTableViewController: UITableViewController {
                 } else {
                     //take the task at given index
                     taskList.tasks[selectedIndexPath.row] = task
-                    if (selectedIndexPath.row == 1) {
+                    if (selectedIndexPath.section == 1) {
                         tmpcompleteList[selectedIndexPath.row] = task
                     } else {
                         tmptbdList[selectedIndexPath.row] = task

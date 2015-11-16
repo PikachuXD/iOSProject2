@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MobileCoreServices
 
 class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -25,8 +26,43 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     var task : Task?
     var dateFormatter = NSDateFormatter()
     var isComplete : Bool?
-    
+    var newMedia : Bool?
     //MARK: UIImagePickerControllerDelegate
+    @IBAction func useCamera(sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                imagePicker.mediaTypes = [kUTTypeImage as NSString as String]
+                imagePicker.allowsEditing = false
+                
+                self.presentViewController(imagePicker, animated: true,
+                    completion: nil)
+                newMedia = true
+        }
+    }
+    
+    @IBAction func useCameraRoll(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.PhotoLibrary
+                imagePicker.mediaTypes = [kUTTypeImage as NSString as String]
+                imagePicker.allowsEditing = false
+                self.presentViewController(imagePicker, animated: true,
+                    completion: nil)
+                newMedia = false
+        }
+    }
+    
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
@@ -42,6 +78,22 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         task?.photo = selectedImage
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+        
+        if error != nil {
+            let alert = UIAlertController(title: "Save Failed",
+                message: "Failed to save image",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancelAction = UIAlertAction(title: "OK",
+                style: .Cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true,
+                completion: nil)
+        }
     }
     
     //MARK: Actions
@@ -118,13 +170,17 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             dateField.setDate(currdate!, animated: true)
             if task.isComplete == true {
                 setCompButton.setTitle("Set as Incomplete", forState: .Normal)
+                isComplete = true
             } else {
                 setCompButton.setTitle("Set as Complete", forState: .Normal)
+                isComplete = false
             }
             taskPhoto.image = task.photo
+        } else {
+            isComplete = false
         }
-        isComplete = false
         checkValidName()
+
         self.nameField.delegate = self
     }
 
