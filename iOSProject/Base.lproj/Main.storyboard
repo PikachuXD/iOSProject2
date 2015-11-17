@@ -44,6 +44,7 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="tintColor" red="1" green="1" blue="0.88763469827586206" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="Buk-cT-7SS" id="OdS-FE-eel"/>
                                     <outlet property="nameLabel" destination="Skd-s5-qhK" id="mDO-UQ-s59"/>
@@ -102,7 +103,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZI-i5-80T">
                                                 <rect key="frame" x="258" y="176" width="85" height="30"/>
                                                 <animations/>
-                                                <state key="normal" title="Use Camera"/>
+                                                <state key="normal" title="Use Camera">
+                                                    <color key="titleColor" red="1" green="0.058001077586206894" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="useCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OMV-mu-qSV"/>
                                                 </connections>
@@ -130,14 +133,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-ox-rVa">
                                                 <rect key="frame" x="244" y="365" width="113" height="30"/>
                                                 <animations/>
-                                                <state key="normal" title="Set as Complete"/>
+                                                <state key="normal" title="Set as Complete">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="setAsComplete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXH-tz-qqD"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.88227370689655171" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="e9a-ox-rVa" firstAttribute="top" secondItem="bxo-A0-AV4" secondAttribute="bottom" constant="13" id="5ZQ-SD-CZf"/>
                                             <constraint firstItem="HHd-gW-9dP" firstAttribute="top" secondItem="YTB-e7-Pme" secondAttribute="top" constant="8" id="A4c-zN-uhu"/>
@@ -162,7 +167,7 @@
                             </scrollView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.88763469829999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0VG-cM-Mhg" secondAttribute="bottom" constant="12" id="5wn-Ya-8a4"/>
                             <constraint firstItem="0VG-cM-Mhg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6lx-KV-AYo"/>
@@ -185,6 +190,7 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="View Map" id="9Ab-my-TI6">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <segue destination="No2-H1-Gp9" kind="presentation" id="2dZ-hu-xgh"/>
                                 </connections>
@@ -222,7 +228,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-Ef-xHF">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-Ef-xHF">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                             </mapView>
@@ -313,7 +319,7 @@
         <image name="defaultPhoto" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N8U-Gw-RUm"/>
+        <segue reference="f3Z-Xw-oqT"/>
         <segue reference="9yB-Su-FCq"/>
     </inferredMetricsTieBreakers>
 </document>
